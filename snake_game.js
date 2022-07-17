@@ -122,14 +122,29 @@ const moveSnake = () => {
     // Describe what to do if the snake encounters a food pixel
     if (currentHeadPosition == currentFoodPosition) {
       totalFoodEaten++
-      document.getElementById("pointEarned").innerText = totalFoodEaten
+      document.getElementById("pointsEarned").innerText = totalFoodEaten
       snakeLength = snakeLength + 100
       createFood()
     }
 }
 
+// call initial funtion to create board and start game
 createGameBoardPixels();
 
 createFood();
-
+// Set animation speed
 let moveSnakeInterval = setInterval(moveSnake, 100)
+
+//Adding event listeners for on-screen buttons
+addEventListener("keydown", e => changeDirection(e.keyCode))
+
+const leftButton = document.getElementById("leftButton")
+const rightButton = document.getElementById("rightButton")
+const upButton = document.getElementById("upButton")
+const downButton = document.getElementById("downButton")
+
+//Add listeners for on-screen buttons
+leftButton.onclick = () => changeDirection(LEFT_DIR)
+rightButton.onclick = () => changeDirection(RIGHT_DIR)
+upButton.onclick = () => changeDirection(UP_DIR)
+downButton.onclick = () => changeDirection(DOWN_DIR)
