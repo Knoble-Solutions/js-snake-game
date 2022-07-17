@@ -3,7 +3,8 @@ body {
     text-align: center;
 }
 
-#gameContainer {
+#gameContainer{
+
     width: 40vw;
     height: 40vw;
     margin: 1vw auto;
